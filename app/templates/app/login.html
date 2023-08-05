@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}LogIn{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row my-3">
+  <div class="col-sm-6 offset-sm-3">
+   <h3>LogIn</h3>
+   <hr>
+   <form action="" method="post" novalidate class="shadow p-5">
+      {% if messages %}
+      {% for message in messages %}
+      <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+      {% endfor %}
+      {% endif %}
+    {% csrf_token %}
+    {% for fm in form %}
+     {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small><br><br>
+    {% endfor %}
+     <input type="submit" value="Login" class="btn btn-primary"></input>
+     <div class="text-center text-primary fw-bold"><small>Forgot Password ? 
+      <a href="{% url 'resetpassword' %}" class="text-danger">Reset Password</a></small></div>
+    </div>
+    <br>
+    <div class="text-center text-primary fw-bold"><small>New to ShopingKart ? 
+        <a href="{% url 'customerregistration' %}" class="text-danger">Create an Account</a></small></div>
+    {% if form.non_field_errors %}
+    {% for error in form.non_field_errors %}
+    <p class="alert alert-danger my-3">{{error}}</p>
+    {% endfor %}
+    {% endif %}
+   </form>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
