@@ -1,32 +1,32 @@
 {% extends 'app/base.html' %}
 {% load static %}
-{% block title %}Laptop{% endblock title %}
+{% block title %}Television{% endblock title %}
 {% block main-content %}
 <div class="container my-5">
  <div class="row">
   <div class="col-sm-3">
     <div class="list-group">
-        <a href="{% url 'laptop' %}" class="list-group-item 
-        list-group-item-action" area-current="true">All Laptops</a>
+        <a href="{% url 'television' %}" class="list-group-item 
+        list-group-item-action" area-current="true">All Televisions</a>
         <h6>BRAND</h6>
-        {% for laptop in laptops %}
-        <a href="{% url 'laptopdata'  laptop.brand %}" class="list-group-item 
-        list-group-item-action" area-current="true">{{laptop.brand}}</a>
+        {% for tv in televisions %}
+        <a href="{% url 'tvdata'  tv.brand %}" class="list-group-item 
+        list-group-item-action" area-current="true">{{tv.brand}}</a>
         {% endfor %}
         <h6>PRICE</h6>
-        <a href="{% url 'laptopdata'  'below' %}" class="list-group-item 
-        list-group-item-action" area-current="true">Below 50000</a>
-        <a href="{% url 'laptopdata'  'above' %}" class="list-group-item 
-        list-group-item-action" area-current="true">Above 50000</a>
+        <a href="{% url 'tvdata'  'below' %}" class="list-group-item 
+        list-group-item-action" area-current="true">Below 20000</a>
+        <a href="{% url 'tvdata'  'above' %}" class="list-group-item 
+        list-group-item-action" area-current="true">Above 20000</a>
     </div>
   </div>
   <div class="col-sm-8 offset-sm-1">
     <div class="row">
-        {% for product in laptops %}
+        {% for product in televisions %}
         <div class="col-sm-4 text-center mb-4">
             <a href="{% url 'product-detail' product.id %}" class="btn">
               <div class="item">
-                <img src="{{product.product_image.url}}" alt="" height="300" class="">
+                <img src="{{product.product_image.url}}" alt="" width="250" class="">
                 <div class="fw-bold">{{product.title}}</div>
                 <div class="fw-bold">Rs{{product.discounted_price}}
                  <small class="fw-light text-decoration-line-through">{{product.selling_price}}</small></div>

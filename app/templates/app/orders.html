@@ -49,10 +49,11 @@
         </div>
         {% endif %}
     </div>
-        {% if o.status != "Delivered" %}
+        {% if o.status != "Delivered" and o.status != "Cancel" %}
         <a href="{% url 'ordercancel' o.id %}" class="btn btn-sm btn-secondary mr-3 ">Cancel The Order </a>
         {% endif %}
    </div>
+
    {% endfor %}
   </div>
  </div>

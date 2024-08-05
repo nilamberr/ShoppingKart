@@ -56,7 +56,10 @@ CATEGORY_CHOICE= (
     ('M','Mobile'),
     ('L','Laptop'),
     ('TW','Top Wear'),
-    ('BW','Bottom Wear')
+    ('BW','Bottom Wear'),
+    ('TV','Television'),
+    ('HS','Headphones & Speakers'),
+    ('W','Watch')
 )
 class Product(models.Model):
     title=models.CharField(max_length=100)
